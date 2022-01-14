@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kent-above Delight Methods</title>
+
+<script>
+// ------------------------------------------------------------
+// DATA
+
+// List of works, arranged by column, each given as Id/Name 
+
+var workTable=
+[['O/OXFORD','D/DOVER','K/KENT','H/HILLS'],
+['Cm/Cambridge','Ip/Ipswich','Cu/Cunecastre','Bv/Beverley','Su/Surfleet',
+'No/Norwich','Bo/Bourne',
+'Ws/Westminster','Ad/Allendale','Ke/Kelso','Wk/Warkworth'],
+['S1/S1','S2/S2','S3/S3','S4/S4','Ey/S1 1st','Cx/S4 1st','Bn/Kelso 3rd','Cc/London 5th'],
+['2/2nds','6/6ths']
+];
+
+// false: gray-out works not included in any method
+
+var includeAll=false;
+
+// List of methods, given as Name/Work 1/Work 2/...
+
+var methodTable=
+[
+//'Peveril/H/S1/2','Leasowe/H/S2/2','Melandra/H/S3/2','Beeston/H/S4/2',
+//'Bucknall/H/Bn/2','Castleton/H/Cx/2','Stirling/H/Cu/2','Chelsea/H/Cc/2',
+
+'Warwick/K/Cx/2','Ludlow/K/Cx/6','Caernarvon/K/Bn/2','Conway/K/Bn/6',
+'Barham/K/Cm/2','Oswald/K/Cm/6','Pembroke/K/Bv/2','Edinburgh/K/Bv/6',
+'Berkeley/K/Su/2','Kentish/K/Su/6','Pontefract/K/Ws/2','Wath/K/Ws/6',
+'Donottar/K/Ad/2','Carisbrooke/K/Ad/6',
+
+//'Wilmslow/D/S1/2','Balmoral/D/S1/6','Bogedone/D/S2/2','Fotheringay/D/S2/6',
+//'Rostherne/D/S3/2','Chepstow/D/S3/6','Knutsford/D/S4/2','Skipton/D/S4/6',
+//'Ely/D/Ey/2','Belvoir/D/Wk/6','Francis Genius/D/Ip/2','Cambridge D/D/Ip/6',
+//'Dover/D/No/6','Dunedin/D/Cc/2','Pevensey/D/Cc/6',
+
+//'Disley/O/Bo/2','Conisborough/O/Ke/2','Richborough/O/Ke/6',
+//'Evening Star/O/Ey/2','Coventry/O/Ey/6'
+
+];
+
+// Parameters
+
+var initialweight=25;	// initial score (in seconds) assigned to each method
+var penalty=10;		// penalty (in seconds) for each error
+var inertia=.5;		// relative weighting given to previous vs new score
+var progressstretch=2;  // power applied to percentage to emphasise initial progress
+
+// ----------------------------------------------------------------
+</script>
+
+<!-- ------------------------------------------------------------ -->
+<!-- STYLE -->
+
+<link rel="stylesheet" type="text/css" href="methods.css">
+
+</head>
+
+<!-- ------------------------------------------------------------ -->
+<!-- PAGE -->
+
+<body>
+
+<table class=main>
+  <tr height=12%>
+    <td class=head colspan=100%> <table style="height:100%;width:100%;"> <tr>
+       <td id='percentage' width=15%>
+          <!-- percentage will go here -->
+       </td>
+       <td id='method' class=question>
+         <!-- method will go here -->
+       </td>
+       <td id='pause' onMouseDown='pausemousedown()' class=normal width=12%>
+         &#9616;&ensp;&#9612;    <!-- pause symbol -->
+       </td>
+    </tr> </table> </td>
+  </tr>
+  <tr id='works'>
+     <!-- works will be inserted here -->   
+  </tr>
+</table>
+
+<!-- ------------------------------------------------------------ -->
+<!-- SCRIPT -->
+
+<script src="methods.js"></script>
+
+</body>
+</html>
