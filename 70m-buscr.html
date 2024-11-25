@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>70 Methods BUSCR</title>
+
+<script>
+// ------------------------------------------------------------
+// DATA
+
+// List of works, arranged by column, each given as Id/Name 
+
+var workTable=
+[['C/CAMBRIDGE','K/CARLISLE','L/LONDON','N/NORWICH'],
+['Cm/Cambridge','Ip/Ipswich','Cu/Cunecastre','Bv/Beverley','Su/Surfleet',
+'No/Norwich','Bo/Bourne','Lo/London','We/Wells',
+'Ws/Westminster','Ad/Allendale','Ke/Kelso','Wk/Warkworth', 
+'D1/D1','D2/D2','D3/D3','D4/D4',
+'Ck/Elston','Ms/Kirkstall','Cv/Marple',
+'Bw/Burslem','Cn/Taxal','By/Bedford'],
+['2/2nds','6/6ths']
+];
+
+// false: gray-out works not included in any method
+
+var includeAll=false;
+
+// List of methods, given as Name/Work 1/Work 2/...
+
+var methodTable=
+[
+//delights
+'Elston/C/Ck/2','Clarence/C/Ck/6','Kirkstall/C/Ms/2','London Vic/C/Ms/6',
+'Burslem/C/Bw/2','Waltham/C/Bw/6','Burnaby/C/By/2',
+
+'Fountains/A/Ck/2','Melrose/A/Ck/6','Tewkesbury/A/Ms/2','Evesham/A/Ms/6',
+'Glastonbury/A/Bw/2','Tintern/A/By/2','Sherborne/A/By/6',
+
+'Combermere/L/D1/2','Vale Royal/L/D2/2',
+'Abbeyville/L/Cv/2','Canterbury D/L/Cn/2','Southwark/L/By/2',
+
+'Old Oxford/N/D1/2','Neasden/N/D1/6','College Bob IV/N/D2/2','St Albans/N/D2/6',
+'Marple/N/Cv/2','Braintree/N/Cv/6','Taxal/N/Cn/2','Humber/N/Cn/6',
+'Bedford/N/By/2','Merton/N/By/6'
+
+//surprises
+'Cambridge/C/Cm/2','Primrose/C/Cm/6','Ipswich/C/Ip/2','Norfolk/C/Ip/6',
+'Beverley/C/Bv/2','Berwick/C/Bv/6','Surfleet/C/Su/2','Hexham/C/Su/6',
+'Bourne/C/Bo/2','Hull/C/Bo/6','York/C/Lo/2','Durham/C/We/2',
+
+'Carlisle/K/Cm/2','Northumberland/K/Ip/2','Whitley/K/Ip/6',
+'Chester/K/Bv/2','Munden/K/Su/2','Sandiacre/K/Bo/2','Wooler/K/Bo/6',
+'Alnwick/K/Lo/2','Canterbury/K/Lo/6','Newcastle/K/We/2','Morpeth/K/We/6',
+
+'London/L/Lo/2','Wells/L/We/2','Lincoln/L/Ws/2','Coldstream/L/Ad/2',
+'Cunecastre/L/Cu/2','Kelso/L/Ke/2',
+
+'Norwich/N/No/6','Warkworth/N/Wk/6','Westminster/N/Ws/2','Allendale/N/Ad/2',
+'Netherseale/N/Cu/2',"Annable's London/N/Cu/6",'Bamborough/N/Ke/2','Bacup/N/Ke/6',
+'Lightfoot/N/Lo/2','Rossendale/N/Lo/6','Wearmouth/N/We/2','Stamford/N/We/6'
+];
+
+// Parameters
+
+var initialweight=25;	// initial score (in seconds) assigned to each method
+var penalty=10;		// penalty (in seconds) for each error
+var inertia=.5;		// relative weighting given to previous vs new score
+var progressstretch=2;  // power applied to percentage to emphasise initial progress
+
+// ----------------------------------------------------------------
+</script>
+
+<!-- ------------------------------------------------------------ -->
+<!-- STYLE -->
+
+<link rel="stylesheet" type="text/css" href="methods.css">
+
+</head>
+
+<!-- ------------------------------------------------------------ -->
+<!-- PAGE -->
+
+<body>
+
+<table class=main>
+  <tr height=12%>
+    <td class=head colspan=100%> <table style="height:100%;width:100%;"> <tr>
+       <td id='percentage' width=15%>
+          <!-- percentage will go here -->
+       </td>
+       <td id='method' class=question>
+         <!-- method will go here -->
+       </td>
+       <td id='pause' onMouseDown='pausemousedown()' class=normal width=12%>
+         &#9616;&ensp;&#9612;    <!-- pause symbol -->
+       </td>
+    </tr> </table> </td>
+  </tr>
+  <tr id='works'>
+     <!-- works will be inserted here -->   
+  </tr>
+</table>
+
+<!-- ------------------------------------------------------------ -->
+<!-- SCRIPT -->
+
+<script src="methods.js"></script>
+
+</body>
+</html>
